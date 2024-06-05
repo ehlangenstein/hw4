@@ -7,10 +7,15 @@
   <% end %>
 
 <p>
-  <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
+  <% if @current_user %>
+    <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
+  <%else%>
+    <a href="/places">Back to All Places</a>
+    <%end%>
 </p>
 
 <p>
   <a href="/places">Back to All Places</a>
 </p>
+
 

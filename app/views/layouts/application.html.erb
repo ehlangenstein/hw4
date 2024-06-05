@@ -20,7 +20,7 @@
   <body>
     <nav class="navbar bg-primary mb-3" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Places I've Been</a>
+        <a class="navbar-brand" href="/">Travel Diary</a>
         <span class="navbar-text">
           <% @user = User.find_by({ "id" => session["user_id"] }) %>
           <% if @user == nil %>

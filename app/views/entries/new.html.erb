@@ -2,11 +2,12 @@
 
 <form action="/entries" method="post">
   <input type="hidden" name="place_id" value="<%= params["place_id"] %>">
+  <div class="mb-3">
 
-  <p>
     <label for="title_input">Title</label>
     <input type="text" name="title" id="title_input">
-  </p>
+
+  </div>
 
   <p>
     <label for="description_input">Description</label>
@@ -18,5 +19,5 @@
     <input type="date" name="occurred_on" id="occurred_on_input">
   </p>
 
-  <button>Save</button>
+  <button type="button" class="btn btn-outline-dark">Save</button>
 </form>
