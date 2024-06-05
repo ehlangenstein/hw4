@@ -9,7 +9,7 @@ class PlacesController < ApplicationController
     @user = User.find_by({ "id" => session["user_id"] })
     if @user != nil 
       @place = Place.find_by({ "id" => params["id"] })
-      @entries = Entry.where({ "place_id" => @place["id"] })
+      @entries = Entry.where({ "place_id" => @place["id"], "user_id" => @user["id"] })
     else 
       flash["notice"] = "Login first."
     end 
