@@ -1,15 +1,21 @@
 <h1>My Trips to <%= @place["name"] %></h1>
+<p>
+  <% if @current_user %>
+    <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-outline-dark">New Entry</a>
+  <%end%>
+  <a href="/places" class="btn btn-outline-dark">Back to All Places</a>
+</p>
 
 <div class = "row">
   <% for entry in @entries %>
     <div class="col-sm-6 col-md-3 mb-4">
       <div class="card">
         <% if entry.uploaded_image.attached? %>
-          <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+          <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid card-img-top mb-3">
         <% else %>
-          <img src="<%= entry["image"] %>" class="img-fluid">
+          <img src="<%= entry["image"] %>" class="img-fluid card-img-top mb-3">
         <% end %>
-        <div class="card body">
+        <div class="card body text-center">
           <h3 class="card-title"><%= entry["title"] %></h3>
           <h4 class="card-subtitle mb-2 text-muted"><%= entry["occurred_on"] %></h4>
           <p class="card-text"><%= entry["description"] %></p>  
@@ -19,16 +25,6 @@
   <% end %>
 </div>
 
-<p>
-  <% if @current_user %>
-    <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
-  <%else%>
-    <a href="/places">Back to All Places</a>
-  <%end%>
-</p>
 
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
 
 

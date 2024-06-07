@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
       @entries = Entry.where({ "place_id" => @place["id"], "user_id" => @user["id"] })
     else 
       flash["notice"] = "Login first."
+      redirect_to "/login"
     end 
   
   end
